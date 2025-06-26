@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    gap: 57px;
+
+    .navLink{
+        text-decoration: none;
+        @include typo(500,24px,black)
+    }
+
+    .navLink.active{
+        text-decoration: underline;
+    }
+}
+
