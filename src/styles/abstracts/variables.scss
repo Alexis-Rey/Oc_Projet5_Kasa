@@ -1,7 +1,7 @@
 // Mixin pour la police global du site
-@mixin typo($weight, $size, $color) {
+@mixin typo($weight,$min-size, $size,$max-size, $color) {
   font-family: 'Montserrat', sans-serif;
   font-weight: $weight;
-  font-size: $size;
+  font-size: clamp($min-size, $size, $max-size);
   color: $color;
 }

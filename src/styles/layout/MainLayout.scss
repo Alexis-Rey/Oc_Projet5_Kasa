@@ -1,0 +1,18 @@
+.header, main{
+    margin: 45px 100px 0 100px;
+}
+
+.footer picture{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.footer img{
+    width: auto;
+}
+
+@media all and (max-width: 700px) {
+    .header, main{
+        margin: 20px 20px 0 20px;
+    }
+}
