@@ -10,7 +10,6 @@ function Home() {
         <section className="home-cards">
             <Cards />
         </section>
-        <p>Bienvenue chez Kasa</p>
     </div>
 };
 

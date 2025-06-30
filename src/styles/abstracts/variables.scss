@@ -5,3 +5,23 @@
   font-size: clamp($min-size, $size, $max-size);
   color: $color;
 }
+
+// Mixin pour la taille des cards
+@mixin cards($width,$height) {
+  border-radius: $secondary-border;
+  display: block;
+  width: $width;
+  height: $height;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+}
+
+// Variable globale
+$main-text-color: black;
+$main-border: 16px;
+$secondary-border: 10px;
+$main-text-shadow: 
+  -1px -1px 0 $main-text-color,
+  1px -1px 0 $main-text-color,
+  -1px 1px 0 $main-text-color,
+  1px 1px 0 $main-text-color, 
+  0 4px 4px rgba(0,0,0,0.25);
