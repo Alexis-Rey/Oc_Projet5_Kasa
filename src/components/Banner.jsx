@@ -2,7 +2,7 @@ import React from "react";
 
 function Banner({title}) {
     return <div className="banner">
-        <p className="banner-title">{title}</p>
+        <h2 className="banner-title">{title}</h2>
     </div>
 }
 
