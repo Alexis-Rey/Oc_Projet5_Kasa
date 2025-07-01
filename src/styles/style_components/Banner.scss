@@ -7,11 +7,20 @@
     align-items: center;
     height: 223px;
     overflow: hidden;
-    background-image: url("/src/assets/banner-desk-home.webp");
-    background-position: center;
-    background-size: cover;
     border-radius: $main-border;
     box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+
+    .banner-content, .banner-content img{
+        width:100%
+    }
+
+    .banner-title{
+    @include typo(700,24px,3vw,48px,white);
+    position: absolute;
+    z-index: 100;
+    text-shadow: $main-text-shadow;
+    }
+
 
     &::after{
         content: "";
@@ -22,17 +31,9 @@
     }
 }
 
-.banner-title{
-    @include typo(700,24px,3vw,48px,white);
-    position: absolute;
-    z-index: 100;
-    text-shadow: $main-text-shadow;
-}
-
 @media all and (max-width: 700px) {
     .banner{
         height: 111px;
-        background-image: url("/src/assets/banner-mob-home.webp");
         justify-content: start;
         padding-left: 16px;
     }

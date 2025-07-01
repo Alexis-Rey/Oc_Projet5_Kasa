@@ -1,8 +1,12 @@
 import React from "react";
 
-function Banner({title}) {
+function Banner({title,src1,src2}) {
     return <div className="banner">
         <h2 className="banner-title">{title}</h2>
+        <picture className="banner-content">
+            <source srcSet={src2} media="(max-width: 700px)" />
+            <img src={src1} />
+        </picture>
     </div>
 }
 
