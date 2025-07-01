@@ -21,20 +21,30 @@
         text-decoration: none;
         @include cards(100%,340px);
         @include typo(700,18px,18px,18px,white);
-        background-size: cover;
-        background-position: center;
     }
     .list-card-content{
         display: flex;
         flex-direction: column;
         justify-content: end;
         height: 100%;
+        position: relative;
     }
     .list-card-title{
         width: 90%;
         height: 15%;
         margin: 0 20px 20px 20px;
         text-shadow: $main-text-shadow;
+        z-index: 100;
+        position: relative;
+    }
+    .list-card-img{    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $secondary-border;
+    position: absolute;
+    top: 0;
+    left: 0;
     }
 }
 
