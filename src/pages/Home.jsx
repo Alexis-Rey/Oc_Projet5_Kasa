@@ -6,10 +6,10 @@ import src2 from "../assets/banner-mob-home.webp";
 
 function Home() {
     return <div className="home">
-        <section className="home-banner">
+        <section className="home__banner">
             <Banner title="Chez vous, partout et ailleurs" src1={src1} src2={src2} />
         </section>
-        <section className="home-cards">
+        <section className="home__cards">
             <Cards />
         </section>
     </div>

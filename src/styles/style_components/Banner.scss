@@ -10,11 +10,11 @@
     border-radius: $main-border;
     box-shadow: 0 4px 4px rgba(0,0,0,0.25);
 
-    .banner-content, .banner-content img{
+    .banner__content, .banner__content img{
         width:100%
     }
 
-    .banner-title{
+    .banner__title{
     @include typo(700,24px,3vw,48px,white);
     position: absolute;
     z-index: 100;
@@ -37,7 +37,7 @@
         justify-content: start;
         padding-left: 16px;
     }
-    .banner-title{
+    .banner__title{
         width: 70%;
     }
 }

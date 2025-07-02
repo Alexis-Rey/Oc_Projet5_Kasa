@@ -11,7 +11,7 @@ const liens = [
 function Header() {
     return <header>
         <div className="header">
-            <h1 className="header-logo">
+            <h1 className="header__logo">
                 <picture>
                     <source srcSet={logoMobile} media="(max-width: 700px)" />
                     <img src={logoDesktop} alt="Logo de l'entreprise Kasa" width={211} height={68} />
@@ -19,7 +19,7 @@ function Header() {
             </h1>
             <nav>
                 {liens.map(({to,label,end}) => {
-                    return <NavLink className="navLink" key={to} to={to} end={end}>{label}</ NavLink>  
+                    return <NavLink className="nav__link" key={to} to={to} end={end}>{label}</ NavLink>  
                 })}
             </nav>
         </div>

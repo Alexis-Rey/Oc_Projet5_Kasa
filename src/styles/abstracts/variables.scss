@@ -15,8 +15,15 @@
   box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
 
+// Mixin pour la taille des collapses
+@mixin collapse($width) {
+  width: $width;
+  border-radius: 5px;
+}
+
 // Variable globale
 $main-text-color: black;
+$main-color-collapse:#FF6060;
 $main-border: 16px;
 $secondary-border: 10px;
 $main-text-shadow: 

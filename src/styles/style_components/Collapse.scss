@@ -1,0 +1,30 @@
+@use "../abstracts/variables" as *;
+
+.collapse{
+    &--large{
+        @include collapse(1023px);
+    }
+    .collapse__header{
+        padding: 10px 20px 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        background-color: $main-color-collapse;
+    }
+    .collapse__header-icon {
+        transition: transform 0.3s ease;
+        transform: rotate(0deg);
+    }
+    .collapse__header[aria-expanded="true"] .collapse__header-icon {
+        transform: rotate(-180deg);
+    }
+    .collapse__content {
+        overflow: hidden;
+        transition: height 0.5s ease;
+    }
+    .collapse__content-inner{
+        border-radius: 0 0 5px 5px;
+        background-color: #F6F6F6;
+        padding: 16px 20px;
+    }
+}

@@ -6,10 +6,10 @@ import src2 from "../assets/banner-mob-about.webp";
 
 function About() {
    return <div className="about">
-        <section className="about-banner">
+        <section className="about__banner">
             <Banner src1={src1} src2={src2} />
         </section>
-        <section className="about-collapses">
+        <section className="about__collapses">
             <Collapse title="Fiabilité" content="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et
             toutes les informations sont régulièrement vérifiées par nos équipes." size="large" />
             <Collapse title="Respect" content="La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation

@@ -1,0 +1,13 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    gap:38px;
+    margin-bottom: 38px;
+
+    .about__collapses{
+        display: flex;
+        flex-direction: column;
+        gap: 1.9rem;
+        align-items: center;
+    }
+}

@@ -1,6 +1,6 @@
 @use "../abstracts/variables" as *;
 
-.home-cards{
+.home__cards{
     background-color: #F6F6F6;
     margin: 43px 0 50px 0;
     border-radius: $main-border;
@@ -13,23 +13,23 @@
         padding: 56px 50px 43px 50px;
 
     }
-    .list-logements{
+    .list__logements{
         list-style: none;
     }
-    .list-card{
+    .list__card{
         color: $main-text-color;
         text-decoration: none;
         @include cards(100%,340px);
         @include typo(700,18px,18px,18px,white);
     }
-    .list-card-content{
+    .list__card-content{
         display: flex;
         flex-direction: column;
         justify-content: end;
         height: 100%;
         position: relative;
     }
-    .list-card-title{
+    .list__card-title{
         width: 90%;
         height: 15%;
         margin: 0 20px 20px 20px;
@@ -37,7 +37,7 @@
         z-index: 100;
         position: relative;
     }
-    .list-card-img{    
+    .list__card-img{    
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -49,7 +49,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  .home-cards{
+  .home__cards{
     background-color: transparent;
     margin: 22px 0 27px 0;
     .list{
@@ -57,7 +57,7 @@
         padding: 0;
         grid-row-gap: 20px;
     }
-    .list-card{
+    .list__card{
         max-height: 255px;
     }
 }
