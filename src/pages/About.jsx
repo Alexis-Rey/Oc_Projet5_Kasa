@@ -1,11 +1,13 @@
 import React from "react";
 import Banner from "../components/Banner";
 import Collapse from "../components/Collapse";
+import src1 from "../assets/banner-desk-about.webp";
+import src2 from "../assets/banner-mob-about.webp";
 
 function About() {
    return <div className="about">
         <section className="about-banner">
-            <Banner />
+            <Banner src1={src1} src2={src2} />
         </section>
         <section className="about-collapses">
             <Collapse title="Fiabilité" content="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et
