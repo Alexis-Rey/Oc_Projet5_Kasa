@@ -2,14 +2,19 @@
 
 .collapse{
     &--large{
-        @include collapse(1023px);
+        @include collapse(335px,100%,1023px);
+    }
+    &--small{
+        @include collapse(335px,100%,582px);
     }
     .collapse__header{
         padding: 10px 20px 10px 15px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         border: none;
         background-color: $main-color-collapse;
+        @include typo(700,13px,3vw,24px,white);
     }
     .collapse__header-icon {
         transition: transform 0.3s ease;
@@ -26,5 +31,6 @@
         border-radius: 0 0 5px 5px;
         background-color: #F6F6F6;
         padding: 16px 20px;
+        @include typo(400,12px,3vw,18px,$main-text-color)
     }
 }

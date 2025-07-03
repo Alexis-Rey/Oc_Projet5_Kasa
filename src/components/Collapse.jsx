@@ -3,9 +3,9 @@ import arrowIcn from "../assets/arrow_collapse.png";
 
 /* Composant collapse comprenant un titre, contenu et taille
 *@params [string] title :  titre du collapse
-*@params [string] content :  contenu du texte ou élément à afficher
+*@params [string] children : props passé depuis le composant Collapse situé dans About.jsx, contenu du texte ou élément à afficher
 *@params [string] title :  indication sur la taille ici entre large ou small*/
-function Collapse({title,content,size}) {
+function Collapse({title,children,size}) {
     const [isOpen, setIsOpen] = useState(false);
     // ici on créer une référence vide dans un premier temps mais qui contiendra l'élément DOM auquel ref est attaché soit la div content avec le contenu camouflé ou non
     const contentRef = useRef(null);
@@ -46,7 +46,7 @@ function Collapse({title,content,size}) {
             className="collapse__content"
             aria-hidden={!isOpen}>
                 <div className="collapse__content-inner">
-                    {content}    
+                    {children}    
                 </div>           
         </div>
     </div>
