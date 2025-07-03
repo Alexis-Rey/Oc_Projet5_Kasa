@@ -33,12 +33,14 @@ function Collapse({title,children,size}) {
             aria-controls={collapseId} 
             aria-expanded={isOpen}
             aria-labelledby={headerId}
-            onClick={() => setIsOpen(!isOpen)} >
+             >
                 {title}
                 <img 
                     className="collapse__header-icon" 
                     src={arrowIcn}
                     aria-hidden="true" 
+                    aria-label="Afficher les informations lié à cette section"
+                    onClick={() => setIsOpen(!isOpen)}
                 />
             </button>
         </h2>
