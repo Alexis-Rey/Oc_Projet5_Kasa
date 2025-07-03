@@ -19,6 +19,8 @@ function Header() {
             </h1>
             <nav>
                 {liens.map(({to,label,end}) => {
+                    /* ici end sert à indiquer que accueil est seulement actif sur sa page car on ne veut pas qu'il le soit sur la page à propos, en somme comme la page accueil
+                    et à propos commence tout les deux par / cela permet de s'assurer que c'est bien en tapant / de facon exacte qu'on va sur accueil */
                     return <NavLink className="nav__link" key={to} to={to} end={end}>{label}</ NavLink>  
                 })}
             </nav>
