@@ -45,7 +45,7 @@ function Collapse({title,children,size}) {
             </button>
         </h2>
         <div id={collapseId} ref={contentRef}
-            className="collapse__content"
+            className={`collapse__content ${isOpen ? "is-open" : ""}`}
             aria-hidden={!isOpen}>
                 <div className="collapse__content-inner">
                     {children}    
