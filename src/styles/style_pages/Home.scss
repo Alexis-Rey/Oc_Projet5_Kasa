@@ -28,12 +28,18 @@
         justify-content: end;
         height: 100%;
         position: relative;
+        &::after{
+            content: "";
+            position:absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        }
     }
     .list__card-title{
         width: 90%;
         height: 15%;
         margin: 0 20px 20px 20px;
-        text-shadow: $main-text-shadow;
+        // text-shadow: $main-text-shadow;
         z-index: 100;
         position: relative;
     }

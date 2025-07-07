@@ -11,12 +11,14 @@ const liens = [
 function Header() {
     return <header>
         <div className="header">
-            <h1 className="header__logo">
-                <picture>
-                    <source srcSet={logoMobile} media="(max-width: 700px)" />
-                    <img src={logoDesktop} alt="Logo de l'entreprise Kasa" width={211} height={68} />
-                </picture>
-            </h1>
+            <NavLink to="/" aria-label="Retour à la page d'accueil">
+                <h1 className="header__logo">
+                    <picture>
+                        <source srcSet={logoMobile} media="(max-width: 700px)" />
+                        <img src={logoDesktop} alt="Logo de l'entreprise Kasa" width={211} height={68} />
+                    </picture>
+                </h1>
+            </NavLink>
             <nav>
                 {liens.map(({to,label,end}) => {
                     /* ici end sert à indiquer que accueil est seulement actif sur sa page car on ne veut pas qu'il le soit sur la page à propos, en somme comme la page accueil

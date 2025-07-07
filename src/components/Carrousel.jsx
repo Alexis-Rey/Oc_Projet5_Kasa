@@ -10,7 +10,7 @@ function Carrousel({images}) {
 
         const interval= setInterval(() => {
             setIndex((index) => (index + 1) % images.length);
-        }, 3000)
+        }, 2000)
 
         return () => clearInterval(interval); /* on nettoie l'interval à chaque rendu */
 
@@ -26,8 +26,6 @@ function Carrousel({images}) {
     return <section className="carrousel">
         <div className="carrousel__gallery" role="region" aria-label="Carrousel d'images du logement">
             <img className="carrousel__gallery-image" src={images[index]} alt="Point de vue d'une partie du logement"
-            onMouseEnter={() => isPaused(true)} 
-            onMouseLeave={() => isPaused(false)} 
             onFocus={() => isPaused(true)}
             onBlur={() => isPaused(false)}
             tabIndex={0}
@@ -36,26 +34,28 @@ function Carrousel({images}) {
         {/* Gestion de l'appararition des flèches de contrôles et du suivi de l'index pour les logements avec plusieurs images uniquement */}
         {images.length > 1 && (
         <>
-            <div className="carrousel_controls">
+            <div className="carrousel__controls-nav">
                 <button className="carrousel__controls-prev" type="button" aria-label="Photo précédente" onClick={() => {prevIndex();isPaused(true);}}>
-                    <svg className="carousel__prev-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="currentColor">
+                    <svg className="carrousel__prev-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="47" height="79" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M34.9 239l194-194c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L131.5 256l154 154c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0l-194-194c-9.5-9.4-9.5-24.6-.1-34z" />
                     </svg>
                 </button>
-                <button className="carrousel__controls-play" onClick={() => isPaused(false)} aria-label="Lecture auto du diaporama">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                <button className="carrousel__controls-next" type="button" aria-label="Photo suivante" onClick={() => {nextIndex();isPaused(true);}}>
+                    <svg className="carrousel__next-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="47" height="79" fill="currentColor" aria-hidden="true" focusable="false">
+        				    <path d="M285.5 273L91.5 467c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9L188.5 256 34.9 102.5c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l194 194c9.4 9.4 9.4 24.6 0 33.9z"/>
+      			    </svg>
+                </button>
+            </div>
+            <div className="carrousel__controls-lecture">
+                <button className={`carrousel__controls-play carrousel--${paused}`} type="button" onClick={() => isPaused(false)} aria-label="Lecture auto du diaporama">
+                    <svg className="carrousel__play-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
                         <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
                     </svg>
                 </button>
-                <button className="carrousel__controls-stop" onClick={() => isPaused(true)} aria-label="Mettre en pause le diaporama">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"  width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
-                    <path d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"/>
+                <button className={`carrousel__controls-stop carrousel--${!paused}`} type="button" onClick={() => isPaused(true)} aria-label="Mettre en pause le diaporama">
+                    <svg className="carrousel__stop-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"  width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                        <path d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"/>
                     </svg>
-                </button>
-                <button className="carrousel__controls-next" type="button" aria-label="Photo suivante" onClick={() => {nextIndex();isPaused(true);}}>
-                    <svg className="carousel__next-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
-        				    <path d="M285.5 273L91.5 467c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9L188.5 256 34.9 102.5c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l194 194c9.4 9.4 9.4 24.6 0 33.9z"/>
-      			    </svg>
                 </button>
             </div>
             <div className="carrousel__index" aria-live="polite" role="status">

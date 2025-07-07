@@ -1,20 +1,103 @@
-.carrousel__gallery{
-    display: block;
+@use "../abstracts/variables.scss" as * ;
+
+%boutton__carrousel{
+    color: white;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    border-radius: $secondary-border;
+    padding: 6.5px 23px;
+}
+
+
+.carrousel{
+    position: relative;
+    height: clamp(255px, 30vw , 415px);
     width: clamp(335px, 100%, 1240px);
-    height: 415px;
+    margin-bottom: 24px;
+
+    .carrousel__gallery{
+    display: block;
     border-radius: 25px;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 
-    .carrousel__gallery-image{
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        .carrousel__gallery-image{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .carrousel__controls-nav{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateY(-50%);
+
+        .carrousel__controls-prev, .carrousel__controls-next {
+            @extend %boutton__carrousel;
+        }
+    }
+    .carrousel__controls-lecture{
+        position: absolute;
+        left: 46.5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .carrousel__controls-play, .carrousel__controls-stop{
+            @extend %boutton__carrousel;
+            position: absolute;
+            bottom: 20px;
+            padding: 3px 23.5px;
+        }
+        .carrousel--false{
+            display: none;
+        }
+    }
+    .carrousel__index{
+        @extend %boutton__carrousel;
+        position: absolute;
+        bottom: 20px;
+        left: 53.5%;
+        padding: 7.5px 25px;
     }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media screen and (max-width:700px){
-    .carrousel__gallery{
-        height: 255px;
+    .carrousel{
+        .carrousel__gallery{
+            height: 255px;
+        }
+        .carrousel__controls-nav{
+            transform: scale(-50%);
+            top: 0%;
+            left: -50%;
+            right: -50%;
+            bottom: 0;
+        }
+        .carrousel__controls-lecture{
+            left: 40%;
+        }
+        .carrousel__index{
+            left: 60%;
+        }
     }
 }
