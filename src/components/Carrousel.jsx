@@ -25,11 +25,18 @@ function Carrousel({images}) {
 
     return <section className="carrousel">
         <div className="carrousel__gallery" role="region" aria-label="Carrousel d'images du logement">
-            <img className="carrousel__gallery-image" src={images[index]} alt="Point de vue d'une partie du logement"
-            onFocus={() => isPaused(true)}
-            onBlur={() => isPaused(false)}
-            tabIndex={0}
-            />
+            {/* Mise en place d'une div globale parent qui se déplace en fonction de l'état de l'index pour provoquer l'effet de défilement entre les images
+            , il s'agit d'une mécanique de glissement cumulative et pas comparative ici, en effet seul la valeur de transform change en étant soit +négative soit -négative
+            et comme la div contient l'ensemble des images alignés cela provoque l'effet voulu */}
+             <div className="carrousel__track"style={{ transform: `translateX(-${index * 100}%)` }}>
+                {images.map((imageSrc, i) => (
+                    <img key={i} className="carrousel__gallery-image" src={imageSrc} alt="Point de vue d'une partie du logement"
+                    onFocus={() => isPaused(true)}
+                    onBlur={() => isPaused(false)}
+                    tabIndex={0}
+                    />
+                ))}
+            </div>
         </div>
         {/* Gestion de l'appararition des flèches de contrôles et du suivi de l'index pour les logements avec plusieurs images uniquement */}
         {images.length > 1 && (

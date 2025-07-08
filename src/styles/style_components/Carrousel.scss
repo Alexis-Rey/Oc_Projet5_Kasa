@@ -22,8 +22,16 @@
     width: 100%;
     height: 100%;
 
+    .carrousel__track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+        height: 100%;
+    }
+
         .carrousel__gallery-image{
             display: block;
+            flex-shrink: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -42,6 +50,9 @@
         .carrousel__controls-prev, .carrousel__controls-next {
             @extend %boutton__carrousel;
         }
+        .carrousel__controls-prev:hover, .carrousel__controls-next:hover {
+            color: $main-color-collapse;
+        }
     }
     .carrousel__controls-lecture{
         position: absolute;
@@ -58,6 +69,9 @@
         }
         .carrousel--false{
             display: none;
+        }
+        .carrousel__controls-play:hover, .carrousel__controls-stop:hover{
+            color:$main-color-collapse
         }
     }
     .carrousel__index{
