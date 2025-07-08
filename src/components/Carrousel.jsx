@@ -1,35 +1,79 @@
 import React, {useState, useEffect} from "react";
+import { use } from "react";
 
 function Carrousel({images}) {
     const [index, setIndex] = useState(0);
     const [paused, isPaused] = useState(false);
-    /*Rajout d'un contrôle d'effet de bord avec le tableau d'images en dépendance pour faire défiler automatique la gallerie avec un système de pause au survol
-    ou au défilement manuel du visiteur */
+    const [stopTransition, setStopTransition] = useState(false);
+    const total = images.length;
+
+    /*Rajout d'un contrôle d'effet de bord avec le tableau d'images en dépendance pour faire défiler automatique la gallerie  */
     useEffect(() =>{
-        if(images.length <=1 || paused) return; /* dans le cas d'une seule image de logement pas de défilement auto */
+        if(total <=1 || paused) return; /* dans le cas d'une seule image de logement pas de défilement auto */
 
         const interval= setInterval(() => {
-            setIndex((index) => (index + 1) % images.length);
-        }, 2000)
+            nextIndex();
+        }, 2000);
 
         return () => clearInterval(interval); /* on nettoie l'interval à chaque rendu */
 
     },[images,paused]);
 
+    // Fonctions de navigation
     const prevIndex = () => {
-        setIndex((index - 1 + images.length) % images.length);
+        setIndex((oldIndex) => oldIndex - 1 );
     }
     const nextIndex = () => {
-        setIndex((index + 1 ) % images.length);
+        setIndex((oldIndex) => oldIndex + 1 );
     }
+
+    // Reset de l'index lorsque l'on atteint les bords c'est à dire une des deux images clônes ajouter avant et après la galerie d'images récupéré
+    useEffect(() => {
+        if(total <=1) return; /* si on a une seul image de logement pas de gestion */
+
+        // si on atteint le clone de l'image de fin
+        if(index === -1){
+            setTimeout(() =>{
+                setStopTransition(true);
+                setIndex(total-1);
+            },500);
+        }
+        // si on atteint le cone de l'image initial
+        if(index === total){
+            setTimeout(() =>{
+                setStopTransition(true);
+                setIndex(0);
+            },500);
+        }
+    },[index,images]);
+
+    // Réactivation de la transition entre les images classique
+    useEffect(()=> {
+        if(stopTransition){
+           const reset =  setTimeout(()=>{
+                setStopTransition(false)
+            },20);
+            return () => clearTimeout(reset); /*on nettoie le timeout */
+        }
+    },[stopTransition]);
+
+    // Clones rajouter aux images
+    const extendedImages = [images[total-1], ...images, images[0]];
+
+    // Rajout d'une variable de suivi de l'index réel hors clone pour l'affichage aux utilisateurs
+    const displayIndex = (() => {
+        if (index === -1) return total;
+        if (index === total) return 1;
+        return index + 1;
+    })();
 
     return <section className="carrousel">
         <div className="carrousel__gallery" role="region" aria-label="Carrousel d'images du logement">
             {/* Mise en place d'une div globale parent qui se déplace en fonction de l'état de l'index pour provoquer l'effet de défilement entre les images
             , il s'agit d'une mécanique de glissement cumulative et pas comparative ici, en effet seul la valeur de transform change en étant soit +négative soit -négative
             et comme la div contient l'ensemble des images alignés cela provoque l'effet voulu */}
-             <div className="carrousel__track"style={{ transform: `translateX(-${index * 100}%)` }}>
-                {images.map((imageSrc, i) => (
+             <div className="carrousel__track"style={{ transform: `translateX(-${(index + 1) * 100}%)`, transition: stopTransition ? "none" : "transform 0.5s ease" }}>
+                {extendedImages.map((imageSrc, i) => (
                     <img key={i} className="carrousel__gallery-image" src={imageSrc} alt="Point de vue d'une partie du logement"
                     onFocus={() => isPaused(true)}
                     onBlur={() => isPaused(false)}
@@ -39,7 +83,7 @@ function Carrousel({images}) {
             </div>
         </div>
         {/* Gestion de l'appararition des flèches de contrôles et du suivi de l'index pour les logements avec plusieurs images uniquement */}
-        {images.length > 1 && (
+        {total > 1 && (
         <>
             <div className="carrousel__controls-nav">
                 <button className="carrousel__controls-prev" type="button" aria-label="Photo précédente" onClick={() => {prevIndex();isPaused(true);}}>
@@ -66,8 +110,8 @@ function Carrousel({images}) {
                 </button>
             </div>
             <div className="carrousel__index" aria-live="polite" role="status">
-                <span className="carrousel__index-value">{index + 1}/{images.length}</span>
-                <span className="sr-only">Images numéro {index + 1} sur {images.length}</span>
+                <span className="carrousel__index-value">{displayIndex}/{total}</span>
+                <span className="sr-only">Images numéro {displayIndex} sur {total}</span>
             </div> 
         </>
         )}
