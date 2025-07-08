@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { use } from "react";
 
 function Carrousel({images}) {
     const [index, setIndex] = useState(0);
@@ -73,13 +72,12 @@ function Carrousel({images}) {
             , il s'agit d'une mécanique de glissement cumulative et pas comparative ici, en effet seul la valeur de transform change en étant soit +négative soit -négative
             et comme la div contient l'ensemble des images alignés cela provoque l'effet voulu */}
              <div className="carrousel__track"style={{ transform: `translateX(-${(index + 1) * 100}%)`, transition: stopTransition ? "none" : "transform 0.5s ease" }}>
-                {extendedImages.map((imageSrc, i) => (
-                    <img key={i} className="carrousel__gallery-image" src={imageSrc} alt="Point de vue d'une partie du logement"
-                    onFocus={() => isPaused(true)}
-                    onBlur={() => isPaused(false)}
-                    tabIndex={0}
-                    />
-                ))}
+                {extendedImages.map((imageSrc, i) => {
+                    const isClone = i === 0 || i === extendedImages.length -1;
+                return (
+                    <img key={i} className="carrousel__gallery-image" src={imageSrc} alt="Point de vue d'une partie du logement" aria-hidden={isClone ? "true" : undefined} />
+                );
+                })}
             </div>
         </div>
         {/* Gestion de l'appararition des flèches de contrôles et du suivi de l'index pour les logements avec plusieurs images uniquement */}
