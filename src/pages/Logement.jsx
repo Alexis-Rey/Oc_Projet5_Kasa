@@ -13,7 +13,12 @@ function Logement() {
     return <section className="logement">
         <Carrousel images={logement.pictures} />
         <article className="logement__details">
+            <div className="logement__details-content">
 
+            </div>
+            <div className="logement__details-collapse">
+                
+            </div>
         </article>
     </section>
 };
