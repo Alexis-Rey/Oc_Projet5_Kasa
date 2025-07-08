@@ -10,9 +10,12 @@ function Logement() {
     if(!logement){
         return <Navigate to="/404" />
     }
-    return <div>
+    return <section className="logement">
         <Carrousel images={logement.pictures} />
-    </div>
+        <article className="logement__details">
+
+        </article>
+    </section>
 };
 
 export default Logement;
