@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import logements from "../data/logements.json";
 import Carrousel from "../components/Carrousel";
+import InfoLogement from "../components/InfoLogement";
 
 function Logement() {
     const {id} = useParams();
@@ -12,14 +13,13 @@ function Logement() {
     }
     return <section className="logement">
         <Carrousel images={logement.pictures} />
-        <article className="logement__details">
-            <div className="logement__details-content">
-
-            </div>
-            <div className="logement__details-collapse">
-                
-            </div>
-        </article>
+        <InfoLogement 
+        title={logement.title}
+        location={logement.location}
+        tags={logement.tags}
+        host={logement.host}
+        rating={logement.rating}
+        />
     </section>
 };
 
