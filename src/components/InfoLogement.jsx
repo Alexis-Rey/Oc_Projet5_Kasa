@@ -16,11 +16,15 @@ function InfoLogement({title,location,tags,host,rating}) {
     for (let i=1; i <=diffStars;i++){
         stars.push(greyStars);
     }
+    // Décomposition du Prénom et Nom de famille pour correspondre à la maquette
+    const [name,lastname] = host.name.split(" ");
 
     return <article className="logement__content-details" aria-labelledby="logement__title">
-        <div className="logement__details-title">
-            <h2 className="logement__title">{title}</h2>
-            <p className="logement__location">{correctedCity}, {correctedRegion}</p>
+        <div className="logement__details">
+            <div className="logement__details-title">
+                <h2 className="logement__title">{title}</h2>
+                <p className="logement__location">{correctedCity}, {correctedRegion}</p>
+            </div>
             <ul className="logement__tags">
                 {newTags.map((tag,index)=> (
                     <li className="logement__tag" key={index}>
@@ -30,18 +34,19 @@ function InfoLogement({title,location,tags,host,rating}) {
             </ul>
         </div>
         <div className="logement__hosting">
-            <span className="logement__hosting-hote">{host.name}</span>
-               <img className="logement__hosting-img" src={host.picture} alt="Photo du propriétaire" />
-        </div>
-        <ul className="logement__rating">
+            <div className="logement__hosting-info">
+                <span className="logement__hosting-hote">{name}<br/>{lastname}</span>
+                <img className="logement__hosting-img" src={host.picture} alt="Photo du propriétaire" />
+            </div>
+            <ul className="logement__rating">
                {stars.map((star,index)=>(
                     <li className="logement__star" key={index}>
                         <img src={star} alt="Etoile accordé par les utilisateurs" aria-hidden="true" width={24.75} height={24}/>
                     </li>
                ))}
                <span className="sr-only">Note de {rating} sur 5</span>
-        </ul>
-            
+            </ul>
+        </div>   
     </article>
 };
 
@@ -54,7 +59,7 @@ function parseLocation(location){
     // Ensuite on corrige une erreur d'accent sur Ile de france si il est présent 
     let correctedRegion = region;
     if(region.trim().toLowerCase() === "ile de france"){
-        correctedRegion = "Île de France"; 
+        correctedRegion = "Île-de-France"; 
     };
     let arrondissement;
     let correctedCity;

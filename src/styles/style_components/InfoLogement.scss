@@ -1,0 +1,78 @@
+@use "../abstracts/variables.scss" as * ;
+
+.logement__content-details{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+    .logement__details{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .logement__details-title{
+            margin-top: 6px;
+            .logement__title{
+                @include typo(500,18px,2.5rem,36px,$main-color-collapse)
+            }
+            .logement__location{
+                @include typo(500,14px,1rem,18px,$main-text-color)
+            }
+        }
+        .logement__tags{
+            display: flex;
+            flex-direction: row;
+            gap:10px;
+            .logement__tag{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: $secondary-border;
+                background-color: $main-color-collapse;
+                @include typo(700,10px,14px,14px,$main-back-color);
+                text-align: center;
+                padding: 3.5px 10px;
+                width: fit-content;
+                min-width: 115px;
+                height: 25px;
+            }
+        }
+    }
+    .logement__hosting{
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+        .logement__hosting-info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            .logement__hosting-hote{
+                @include typo(500,12px,18px,18px,$main-color-collapse);
+                flex: 2;
+                text-align: end;
+            }
+            .logement__hosting-img{
+                width:clamp(32px,64px,64px);
+                height:clamp(32px,64px,64px);
+                border-radius: 32px;
+            }
+        }
+        .logement__rating{
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            .logement__star{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width:clamp(18px,36px,36px);
+                height:clamp(18px,36px,36px);
+            }
+        }
+    }
+
+    li{
+        list-style: none;
+    }
+}
