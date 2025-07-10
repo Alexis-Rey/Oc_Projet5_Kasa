@@ -5,7 +5,8 @@ import arrowIcn from "../assets/arrow_collapse.png";
 *@params [string] title :  titre du collapse
 *@params [string] children : props passé depuis le composant Collapse situé dans About.jsx, contenu du texte ou élément à afficher
 *@params [string] title :  indication sur la taille ici entre large ou small*/
-function Collapse({title,children,size}) {
+function Collapse({title,children,size,tag}) {
+    const Tag = tag;
     const [isOpen, setIsOpen] = useState(false);
     // ici on créer une référence vide dans un premier temps mais qui contiendra l'élément DOM auquel ref est attaché soit la div content avec le contenu camouflé ou non
     const contentRef = useRef(null);
@@ -26,13 +27,12 @@ function Collapse({title,children,size}) {
         }
     },[isOpen]);
 
-    return <div className={`collapse collapse--${size}`}>
+    return <Tag className={`collapse collapse--${size}`} aria-labelledby={headerId}>
         <h2 id={headerId} className="collapse__header-title">
             <button 
             className={`collapse__header collapse--${size}`}
             aria-controls={collapseId} 
             aria-expanded={isOpen}
-            aria-labelledby={headerId}
              >
                 {title}
                 <img 
@@ -51,6 +51,6 @@ function Collapse({title,children,size}) {
                     {children}    
                 </div>           
         </div>
-    </div>
+    </Tag>
 };
 export default Collapse;

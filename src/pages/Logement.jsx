@@ -3,6 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import logements from "../data/logements.json";
 import Carrousel from "../components/Carrousel";
 import InfoLogement from "../components/InfoLogement";
+import Collapse from "../components/Collapse";
 
 function Logement() {
     const {id} = useParams();
@@ -20,6 +21,13 @@ function Logement() {
         host={logement.host}
         rating={logement.rating}
         />
+        <div className="logement__collapse">
+            <Collapse title="Description" size="small" tag="aside">{logement.description}</Collapse>
+            <Collapse title="Équipements" size="small" tag="aside">{logement.equipments.map((equipment,index)=> (
+                <li className="logement__equipment" key={index}>{equipment}</li>
+            ))}
+            </Collapse>
+        </div>
     </section>
 };
 

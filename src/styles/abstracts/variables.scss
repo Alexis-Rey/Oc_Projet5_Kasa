@@ -16,9 +16,9 @@
 }
 
 // Mixin pour la taille des collapses
-@mixin collapse($minWidth, $preferedWidth, $maxWidth) {
+@mixin collapse($minWidth, $preferedWidth, $maxWidth,$borderRadius) {
   width: clamp($minWidth,$preferedWidth,$maxWidth);
-  border-radius: 5px;
+  border-radius: $borderRadius;
 }
 
 // Variable globale

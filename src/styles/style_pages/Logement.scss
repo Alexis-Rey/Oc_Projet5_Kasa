@@ -1,0 +1,12 @@
+.logement{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .logement__collapse{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 76px;
+        margin-bottom: 50px;
+    }
+}

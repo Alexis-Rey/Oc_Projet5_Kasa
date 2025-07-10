@@ -2,10 +2,10 @@
 
 .collapse{
     &--large{
-        @include collapse(335px,100%,1023px);
+        @include collapse(335px,100%,1023px,5px);
     }
     &--small{
-        @include collapse(335px,100%,582px);
+        @include collapse(335px,100%,582px,10px);
     }
     .collapse__header{
         padding: 10px 20px 10px 15px;
