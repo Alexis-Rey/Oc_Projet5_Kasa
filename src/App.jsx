@@ -1,12 +1,15 @@
-import { BrowserRouter } from 'react-router-dom';
-import Router from './router/Router';
+import React from "react";
+import { BrowserRouter, HashRouter } from "react-router-dom";
+import Router from "./router/Router";
+
+const RouterWrapper = process.env.NODE_ENV === "production" ? HashRouter : BrowserRouter;
 
 function App() {
   return (
-    <BrowserRouter>
+    <RouterWrapper>
       <Router />
-    </BrowserRouter>
-  )
+    </RouterWrapper>
+  );
 }
 
-export default App
+export default App;
