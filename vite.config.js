@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Oc_Projet5_Kasa/'
+  base: process.env.NODE_ENV === 'production' ? '/Oc_Projet5_Kasa/' : '/'
 })
