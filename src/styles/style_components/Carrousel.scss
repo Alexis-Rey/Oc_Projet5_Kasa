@@ -108,9 +108,12 @@
         }
         .carrousel__controls-lecture{
             left: 40%;
+            .carrousel__controls-play, .carrousel__controls-stop{
+                bottom: 10px;
+            }
         }
         .carrousel__index{
-            left: 60%;
+            bottom: 10px;
         }
     }
 }

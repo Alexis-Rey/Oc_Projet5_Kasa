@@ -5,7 +5,7 @@
         @include collapse(335px,100%,1023px,5px);
     }
     &--small{
-        @include collapse(335px,100%,582px,$secondary-border);
+        @include collapse(335px, 100%, 100%, $secondary-border);
     }
     .collapse__header{
         padding: 10px 20px 10px 15px;
@@ -20,6 +20,8 @@
         cursor: pointer;
         transition: transform 0.3s ease;
         transform: rotate(0deg);
+        width: 32px;
+        height: 32px;
     }
     .collapse__header[aria-expanded="true"] .collapse__header-icon {
         transform: rotate(-180deg);
@@ -39,4 +41,12 @@
     .collapse__content.is-open .collapse__content-inner {
         transform: translateY(0);
     }
+}
+
+@media screen and (max-width:700px){
+    .collapse{
+       .collapse__header{
+            padding: 0 20px 0 15px
+        } 
+    } 
 }

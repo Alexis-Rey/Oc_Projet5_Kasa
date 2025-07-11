@@ -17,7 +17,9 @@
 
 // Mixin pour la taille des collapses
 @mixin collapse($minWidth, $preferedWidth, $maxWidth,$borderRadius) {
-  width: clamp($minWidth,$preferedWidth,$maxWidth);
+  width: 100%; 
+  min-width: $minWidth;
+  max-width: $maxWidth;
   border-radius: $borderRadius;
 }
 

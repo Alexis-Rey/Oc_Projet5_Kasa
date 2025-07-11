@@ -13,15 +13,18 @@
         .logement__details-title{
             margin-top: 6px;
             .logement__title{
-                @include typo(500,18px,2.5rem,36px,$main-color-collapse)
+                @include typo(500,18px,2.5vw,36px,$main-color-collapse);
+                margin-bottom: 5px;
             }
             .logement__location{
-                @include typo(500,14px,1rem,18px,$main-text-color)
+                @include typo(500,14px,1.5vw,18px,$main-text-color);
+                height: clamp(22px,2vw,26px);
             }
         }
         .logement__tags{
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             gap:10px;
             .logement__tag{
                 display: flex;
@@ -29,12 +32,13 @@
                 align-items: center;
                 border-radius: $secondary-border;
                 background-color: $main-color-collapse;
-                @include typo(700,10px,14px,14px,$main-back-color);
+                @include typo(700,10px,1vw,14px,$main-back-color);
                 text-align: center;
                 padding: 3.5px 10px;
                 width: fit-content;
                 min-width: 115px;
-                height: 25px;
+                height: clamp(18px,2vw,25px);
+                white-space: nowrap;
             }
         }
     }
@@ -48,13 +52,13 @@
             align-items: center;
             gap: 10px;
             .logement__hosting-hote{
-                @include typo(500,12px,18px,18px,$main-color-collapse);
+                @include typo(500,12px,1.5vw,18px,$main-color-collapse);
                 flex: 2;
                 text-align: end;
             }
             .logement__hosting-img{
-                width:clamp(32px,64px,64px);
-                height:clamp(32px,64px,64px);
+                width:clamp(32px,4.5vw,64px);
+                height:clamp(32px,4.5vw,64px);
                 border-radius: 32px;
             }
         }
@@ -62,6 +66,7 @@
             display: flex;
             flex-direction: row;
             justify-content: end;
+            margin-bottom: 7px;
             .logement__star{
                 display: flex;
                 justify-content: center;
@@ -75,4 +80,74 @@
     li{
         list-style: none;
     }
+}
+
+.collapse__header.collapse--small{
+            @include typo(700,13px,2vw,18px,white); 
+            padding: 10px 20px 10px 10px;
+}
+@media screen and (max-width: 900px) {
+    .logement__content-details{
+        .logement__details{
+            .logement__tags{
+                justify-content: start;
+            }
+        }
+        .logement__hosting{
+            .logement__hosting-info{
+                margin-top: 16px;
+                gap: 10px;
+            }
+            .logement__rating{
+                margin-top: 24px;
+                margin-bottom: 0;
+                gap: 2px;
+                .logement__star{
+                    width: 18px;
+                    height: 18px;
+                    img{
+                        width: 13.41px;
+                        height: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:700px) {
+    .logement__content-details{
+        flex-direction: column;
+        .logement__details{
+            gap: 10px;
+            .logement__details-title{
+                margin-top: 0;
+            }
+            .logement__tags{
+                .logement__tag{
+                    min-width: 84px;
+                    border-radius: 5px;
+                }
+            }  
+        }
+        .logement__hosting{
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+    .logement__collapse{
+       .collapse__header-icon{
+            position: relative;
+            left: 10px;
+        } 
+        .collapse{
+        &--small{
+            margin: auto;
+            border-radius: 5px;
+        }
+        .collapse__header{
+            padding: 0 20px 0 10px;
+        }
+    }
+    }
+    
 }

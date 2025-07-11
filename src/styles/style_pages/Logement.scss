@@ -13,3 +13,12 @@
         list-style: none;
     }
 }
+
+@media screen and (max-width:900px){
+    .logement{
+      .logement__collapse {
+        flex-direction: column;
+        gap: 20px;
+      } 
+    }
+}

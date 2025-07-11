@@ -5,7 +5,10 @@ import greyStars from "../assets/grey.png";
 function InfoLogement({title,location,tags,host,rating}) {
     const { correctedRegion, correctedCity, arrondissement } = parseLocation(location);
     // ajout de l'arrondissement au tags si présent
-    const newTags = arrondissement ? [...tags,arrondissement] : tags;
+    let newTags = tags;
+    if (arrondissement && !tags.includes(arrondissement)) {
+        newTags = [...tags, arrondissement];
+    }
     // Conversion en chiffre de la note
     const numberRating = parseInt(rating);
     const diffStars = 5 - numberRating;
