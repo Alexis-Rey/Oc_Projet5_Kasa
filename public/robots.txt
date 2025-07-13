@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexis-rey.github.io/Oc_Projet5_Kasa/sitemap.xml

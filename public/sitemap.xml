@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Page À propos -->
+  <url>
+    <loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/a-propos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pages logement -->
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/c67ab8a7</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/b9123946</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/46d188c5</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/7af00cd6</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/0979876d</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/f72a452f</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/b4c67936</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/bc6f7112</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/cb2f9222</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/d60ca600</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/2cf259e1</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/5323c29b</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/af6d2d48</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/7cbb378e</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/ba55a0cc</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/1e181317</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/1e180563</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/2139a317</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/6ff132c6</loc></url>
+  <url><loc>https://alexis-rey.github.io/Oc_Projet5_Kasa/logement/cb02d69b</loc></url>
+</urlset>
