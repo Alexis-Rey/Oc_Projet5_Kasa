@@ -1,4 +1,5 @@
 @use "../abstracts/variables.scss" as * ;
+@use "../base/reset" as *;
 
 %boutton__carrousel{
     color: white;
@@ -50,7 +51,7 @@
             @extend %boutton__carrousel;
         }
         .carrousel__controls-prev:hover, .carrousel__controls-next:hover {
-            color: $main-color-collapse;
+            color: var(--color-collapse);
         }
     }
     .carrousel__controls-lecture{
@@ -70,7 +71,7 @@
             display: none;
         }
         .carrousel__controls-play:hover, .carrousel__controls-stop:hover{
-            color:$main-color-collapse
+            color: var(--color-collapse)
         }
     }
     .carrousel__index{

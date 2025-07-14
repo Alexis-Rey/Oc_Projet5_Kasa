@@ -1,5 +1,6 @@
 @use "./base/typographie";
 @use "./base/reset" as *;
+@use "./style_components/AccessibilityMode";
 @use "./style_components/Header";
 @use "./layout/MainLayout";
 @use "./style_components/Banner";

@@ -2,6 +2,7 @@ import React from "react";
 import logoDesktop from "../assets/logo-desk.webp";
 import logoMobile from "../assets/logo-mob.webp";
 import { NavLink } from "react-router-dom";
+import AccessibilityMode from "./AccessibilityMode";
 
 const liens = [
     {to: "/", label:"Accueil", end: true},
@@ -10,6 +11,7 @@ const liens = [
 
 function Header() {
     return <header>
+        <AccessibilityMode />
         <div className="header">
             <NavLink to="/" aria-label="Retour à la page d'accueil">
                 <h1 className="header__logo">

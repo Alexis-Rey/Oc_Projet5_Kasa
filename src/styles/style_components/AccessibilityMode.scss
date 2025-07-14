@@ -1,0 +1,30 @@
+.accessibility__toogle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: #000;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: background-color 0.3s;
+}
+
+.accessibility__toogle--active{
+    background-color: #B00000;
+    color: #fff;
+}
+
+.accessibility-mode .home__cards .list__card-content::after {
+  background: rgba(0, 0, 0, 0.8); 
+  height: 25%;
+  position: absolute;
+  transform: translateY(300%);
+}
+.accessibility-mode .banner::after{
+    background: rgba(0, 0, 0, 0.8); 
+}

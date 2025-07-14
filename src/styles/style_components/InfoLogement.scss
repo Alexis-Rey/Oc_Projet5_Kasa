@@ -1,4 +1,5 @@
 @use "../abstracts/variables.scss" as * ;
+@use "../base/reset" as *;
 
 .logement__content-details{
     display: flex;
@@ -13,11 +14,11 @@
         .logement__details-title{
             margin-top: 6px;
             .logement__title{
-                @include typo(500,18px,2.5vw,36px,$main-color-collapse);
+                @include typo(500,18px,2.5vw,36px,var(--color-collapse));
                 margin-bottom: 5px;
             }
             .logement__location{
-                @include typo(500,14px,1.5vw,18px,$main-text-color);
+                @include typo(500,14px,1.5vw,18px,var(--color-collapse));
                 height: clamp(22px,2vw,26px);
             }
         }
@@ -31,7 +32,7 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: $secondary-border;
-                background-color: $main-color-collapse;
+                background-color: var(--color-collapse);
                 @include typo(700,10px,1vw,14px,$main-back-color);
                 text-align: center;
                 padding: 3.5px 10px;
@@ -52,7 +53,7 @@
             align-items: center;
             gap: 10px;
             .logement__hosting-hote{
-                @include typo(500,12px,1.5vw,18px,$main-color-collapse);
+                @include typo(500,12px,1.5vw,18px,var(--color-collapse));
                 flex: 2;
                 text-align: end;
             }

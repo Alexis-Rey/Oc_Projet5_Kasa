@@ -5,9 +5,18 @@
     scroll-behavior: smooth;
 }
 
+:root {
+  --color-collapse: #FF6060;
+}
+
 body, html{
     max-width: 1440px;
     min-width: 375px;
     margin: 0 auto;
+    body.accessibility-mode {
+        --color-collapse: #B00000;
+    }
 }
+
+
 

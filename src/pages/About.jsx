@@ -7,7 +7,7 @@ import src2 from "../assets/banner-mob-about.webp";
 function About() {
    return <div className="about">
         <section className="about__banner">
-            <Banner src1={src1} src2={src2} />
+            <Banner title="" src1={src1} src2={src2} />
         </section>
         <section className="about__collapses">
             <Collapse title="Fiabilité" size="large" tag="article">Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et

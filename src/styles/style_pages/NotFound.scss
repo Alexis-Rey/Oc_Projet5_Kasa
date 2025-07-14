@@ -1,4 +1,5 @@
 @use "../abstracts/variables.scss" as * ;
+@use "../base/reset" as *;
 
 .error{
     display: flex;
@@ -9,10 +10,10 @@
     padding: 94px 0 139px 0;
 
     .error__title{
-        @include typo(700,96px,20vw,288px,$main-color-collapse);
+        @include typo(700,96px,20vw,288px,var(--color-collapse));
     }
     .error__content{
-        @include typo(500,18px,4vw,36px,$main-color-collapse);
+        @include typo(500,18px,4vw,36px,var(--color-collapse));
         text-align: center;
         width: clamp(260px,77%,872px);
     }
