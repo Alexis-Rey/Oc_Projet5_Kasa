@@ -99,7 +99,7 @@ function Carrousel({images}) {
                 {extendedImages.map((imageSrc, i) => {
                     const isClone = i === 0 || i === extendedImages.length -1;
                 return (
-                    <img key={i} className="carrousel__gallery-image" src={imageSrc} alt="Point de vue d'une partie du logement" aria-hidden={isClone ? "true" : undefined} />
+                    <img key={i} className="carrousel__gallery-image" src={imageSrc} alt={`Point de vue ${i + 1} partie du logement`} aria-hidden={isClone ? "true" : undefined} />
                 );
                 })}
             </div>

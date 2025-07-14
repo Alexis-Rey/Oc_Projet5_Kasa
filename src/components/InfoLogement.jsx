@@ -25,7 +25,7 @@ function InfoLogement({title,location,tags,host,rating}) {
     return <article className="logement__content-details" aria-labelledby="logement__title">
         <div className="logement__details">
             <div className="logement__details-title">
-                <h2 className="logement__title">{title}</h2>
+                <h2 id="logement__title" className="logement__title">{title}</h2>
                 <p className="logement__location">{correctedCity}, {correctedRegion}</p>
             </div>
             <ul className="logement__tags">
