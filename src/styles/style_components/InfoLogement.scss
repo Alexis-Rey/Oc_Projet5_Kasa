@@ -18,7 +18,7 @@
                 margin-bottom: 5px;
             }
             .logement__location{
-                @include typo(500,14px,1.5vw,18px,var(--color-collapse));
+                @include typo(500,14px,1.5vw,18px,$main-text-color);
                 height: clamp(22px,2vw,26px);
             }
         }

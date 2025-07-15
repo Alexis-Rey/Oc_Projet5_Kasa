@@ -17,7 +17,7 @@
     gap: 57px;
         .nav__link{
             text-decoration: none;
-            @include typo(500,12px,4vw,24px,black)
+            @include typo(500,12px,3vw,24px,black)
         }
 
         .nav__link.active{
@@ -29,6 +29,9 @@
     .header{
     nav{
         gap:26px;
+         .nav__link{
+            text-transform: uppercase;
+        }
     }    
     }
 }
